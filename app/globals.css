@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 2 6 23;
+  --foreground: 248 250 252;
+  --primary: 14 165 233;
+  --primary-foreground: 255 255 255;
+  --secondary: 30 41 59;
+  --secondary-foreground: 248 250 252;
+  --accent: 34 211 238;
+  --accent-glow: rgba(34, 211, 238, 0.5);
+  --card: 15 23 42;
+  --card-foreground: 248 250 252;
+}
+
+[data-theme='cyberpunk'] {
+  --background: 9 9 11;
+  --primary: 217 70 239;
+  --accent: 45 212 191;
+  --accent-glow: rgba(217, 70, 239, 0.4);
+}
+
+[data-theme='volcanic'] {
+  --background: 12 10 9;
+  --primary: 239 68 68;
+  --accent: 245 158 11;
+  --accent-glow: rgba(239, 68, 68, 0.4);
+}
+
+[data-theme='emerald'] {
+  --background: 2 6 23;
+  --primary: 16 185 129;
+  --accent: 52 211 153;
+  --accent-glow: rgba(16, 185, 129, 0.4);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass {
+    background-color: rgb(var(--card) / 0.7);
+    @apply backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+  }
+  
+  .glass-hover {
+    @apply transition-all duration-300 hover:bg-white/5 hover:border-primary/50 hover:shadow-[0_0_20px_var(--accent-glow)];
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px var(--accent-glow);
+  }
+
+  .cosmic-sphere {
+    background: radial-gradient(circle at 30% 30%, rgb(var(--primary)), transparent);
+    filter: blur(60px);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--primary) / 0.2);
+  @apply rounded-full hover:bg-primary/40 transition-colors;
+}
