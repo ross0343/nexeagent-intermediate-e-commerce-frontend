@@ -1,16 +1,15 @@
 "use client";
 
 import { useCallback } from "react";
-import type { Container, Engine } from "tsparticles";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
 export default function CosmicBackground() {
-  const particlesInit = useCallback(async (engine: Engine) => {
+  const particlesInit = useCallback(async (engine: any) => {
     await loadFull(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async (container: Container | undefined) => {
+  const particlesLoaded = useCallback(async (container: any) => {
     // console.log(container);
   }, []);
 
