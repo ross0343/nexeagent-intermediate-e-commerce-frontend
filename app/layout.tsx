@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import dynamic from "next/dynamic";
 import { Providers } from "./Providers";
 import ThemeSwitcher from "@/components/cosmic/ThemeSwitcher";
 import { ShoppingCart, User, Search } from "lucide-react";
 import Link from "next/link";
-
-const CosmicBackground = dynamic(() => import("@/components/cosmic/CosmicBackground"), {
-  ssr: false,
-});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +22,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
-          <CosmicBackground />
           <nav className="fixed top-0 w-full z-50 glass border-b border-white/5 px-6 py-4">
             <div className="max-w-7xl mx-auto flex items-center justify-between">
               <Link href="/" className="text-2xl font-bold text-glow text-primary tracking-tighter">
