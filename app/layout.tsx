@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import CosmicBackground from "@/components/cosmic/CosmicBackground";
+import dynamic from "next/dynamic";
 import { Providers } from "./Providers";
 import ThemeSwitcher from "@/components/cosmic/ThemeSwitcher";
 import { ShoppingCart, User, Search } from "lucide-react";
 import Link from "next/link";
+
+const CosmicBackground = dynamic(() => import("@/components/cosmic/CosmicBackground"), {
+  ssr: false,
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
